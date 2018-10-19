@@ -22,13 +22,13 @@ public class SplashScreenActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        textVersion = (TextView) findViewById(R.id.textVersion);
+
         getAppVersion();
 
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
-                Intent intent = new Intent(context,MainActivity.class);
+                Intent intent = new Intent(context,LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -40,7 +40,6 @@ public class SplashScreenActivity extends Activity {
 
     public void getAppVersion(){
         String version = Constanta.WELCOME_APP_NAME+" "+ getResources().getString(R.string.app_name);
-        textVersion.setText(version);
 
         Toast.makeText(context,version,Toast.LENGTH_LONG).show();
     }
