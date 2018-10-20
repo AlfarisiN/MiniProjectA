@@ -71,22 +71,22 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.drawerEmployee) {
+        if (id == R.id.employee) {
 //            setActionBarTitle("menu kiri 1");
             EmployeeActivity employeeActivity = new EmployeeActivity();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.frame_all_menu, employeeActivity,"menu kiri 1");
             fragmentTransaction.commit();
 
-        } else if (id == R.id.drawerUser) {
+        } else if (id == R.id.user) {
 
-        } else if (id == R.id.drawerSouvenir) {
+        } else if (id == R.id.souvenir) {
 
-        } else if (id == R.id.drawerEventRequest) {
+        } else if (id == R.id.event) {
 
-        } else if (id == R.id.drawerSouvenirStock) {
+        } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.drawerSouvenirRequest) {
+        } else if (id == R.id.nav_send) {
 
         }
 
