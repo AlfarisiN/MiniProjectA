@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".souvenir.SouvenirActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimaryDark"
+        android:layout_height="?attr/actionBarSize">
+
+        <Button
+            android:id="@+id/menu_btn_souvenir"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/colorPrimaryDark"
+            android:text="="
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="SOUVENIR"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <AutoCompleteTextView
+            android:id="@+id/search_souvenir"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/txt_search_by_name" />
+
+        <Button
+            android:id="@+id/btn_souvenir"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:background="@color/colorPrimaryDark"
+            android:text="+"
+            android:textColor="@color/colorWhite" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/holo_blue_bright"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:text="CODE"
+            android:textAlignment="center" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:text="NAME"
+            android:textAlignment="center" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:text="QUANTITY"
+            android:textAlignment="center" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:text="STATUS"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_souvenir"
+        android:layout_width="350dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+</LinearLayout>
