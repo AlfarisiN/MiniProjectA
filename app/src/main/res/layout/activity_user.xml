@@ -74,6 +74,16 @@
                 android:layout_marginBottom="15dp">
             </android.support.v7.widget.RecyclerView>
         </TableLayout>
+        <Button
+            android:id="@+id/buttonAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/borderlessButtonStyle"
+            android:drawableLeft="@drawable/icon_add"
+            android:text="Buat Biodata Baru"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
