@@ -75,15 +75,10 @@
                     android:id="@+id/option"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-<<<<<<< HEAD
+
                     android:src="@color/colorPrimary"
                     app:srcCompat="@drawable/icon_burger"
                     />
-=======
-                    app:srcCompat="@drawable/icon_burger"
-                    android:background="@drawable/icon_burger" />
-
->>>>>>> 7122913f922846945cd7ae306549f988661af7bb
 
             </LinearLayout>
 

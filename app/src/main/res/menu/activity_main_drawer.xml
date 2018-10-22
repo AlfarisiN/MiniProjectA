@@ -14,8 +14,8 @@
             android:title="User" />
         <item
             android:id="@+id/souvenir"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:icon="@mipmap/icon_chevron"
+            android:title="Souvenir" />
         <item
             android:id="@+id/event"
             android:icon="@drawable/ic_menu_manage"
