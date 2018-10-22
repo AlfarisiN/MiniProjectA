@@ -5,16 +5,15 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="black_overlay">#66000000</color>
-<<<<<<< HEAD
+
     <color name="skyBlue">#87CEFA</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="green">#a4c639</color>
 
     <color name="transparent">#00000000</color>
-=======
+
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
     <color name="colorGrey">#C2C3C2</color>
->>>>>>> 3f2a13e56ca13066cdc1eae5256230e5d75ba934
 </resources>
