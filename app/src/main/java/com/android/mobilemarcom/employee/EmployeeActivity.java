@@ -1,17 +1,12 @@
 package com.android.mobilemarcom.employee;
 
-<<<<<<< HEAD
-=======
+
 import android.app.ProgressDialog;
->>>>>>> 979e8dbddc9d12be883b951ed18a31dbf3996a4d
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-<<<<<<< HEAD
-=======
 import android.support.v7.widget.LinearLayoutManager;
->>>>>>> 979e8dbddc9d12be883b951ed18a31dbf3996a4d
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,10 +14,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-<<<<<<< HEAD
-
-import com.android.mobilemarcom.R;
-=======
 import android.widget.Toast;
 
 import com.android.mobilemarcom.R;
@@ -34,23 +25,17 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
->>>>>>> 979e8dbddc9d12be883b951ed18a31dbf3996a4d
-
 public class EmployeeActivity extends Fragment {
     private RecyclerView recyclerEmployee;
     private EditText nameSearch;
     private Button buttonSearchName;
     private ImageView option;
-<<<<<<< HEAD
-=======
     private List<String> stringList = new ArrayList<>();
     private RequestAPIServices2 apiServices2;
     private boolean isStillLoading = false;
     private int pageCount = 1;
     private int totalPageCount = 1;
     private List<Datum> listUser = new ArrayList<>();
-
->>>>>>> 979e8dbddc9d12be883b951ed18a31dbf3996a4d
 
     public EmployeeActivity() {
     }
@@ -60,29 +45,20 @@ public class EmployeeActivity extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_employee, container, false);
 
-<<<<<<< HEAD
-=======
         recyclerEmployee = (RecyclerView) view.findViewById(R.id.recyclerEmployee);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(),
                 LinearLayoutManager.VERTICAL, false);
         recyclerEmployee.setLayoutManager(layoutManager);
->>>>>>> 979e8dbddc9d12be883b951ed18a31dbf3996a4d
         nameSearch = (EditText) view.findViewById(R.id.nameSearch);
         buttonSearchName = (Button) view.findViewById(R.id.buttonSearchName);
         buttonSearchName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-<<<<<<< HEAD
-
-=======
                 cariData(pageCount);
->>>>>>> 979e8dbddc9d12be883b951ed18a31dbf3996a4d
             }
         });
         return view;
     }
-<<<<<<< HEAD
-=======
     public void cariData(int page){
         final ProgressDialog loading = LoadingClass.loadingAnimationAndText(getContext(), "Sedang Memuat... " + page);
         loading.show();
@@ -142,6 +118,5 @@ public class EmployeeActivity extends Fragment {
 //    public void isiListData(){
 //
 //    }
->>>>>>> 979e8dbddc9d12be883b951ed18a31dbf3996a4d
 }
 
