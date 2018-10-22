@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.android.mobilemarcom.employee.EmployeeActivity;
+import com.android.mobilemarcom.user.UserActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -71,11 +72,7 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-<<<<<<< HEAD
-        if (id == R.id.drawerEmployee) {
-=======
         if (id == R.id.employee) {
->>>>>>> 979e8dbddc9d12be883b951ed18a31dbf3996a4d
 //            setActionBarTitle("menu kiri 1");
             EmployeeActivity employeeActivity = new EmployeeActivity();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -83,6 +80,10 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.commit();
 
         } else if (id == R.id.user) {
+            UserActivity userActivity = new UserActivity();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.frame_all_menu, userActivity,"menu kiri 2");
+            fragmentTransaction.commit();
 
         } else if (id == R.id.souvenir) {
 
