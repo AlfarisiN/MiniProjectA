@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.android.mobilemarcom">
 
+<<<<<<< HEAD
     <uses-permission android:name="android.permission.INTERNET" />
+=======
+>>>>>>> 3f2a13e56ca13066cdc1eae5256230e5d75ba934
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,7 +23,21 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
+<<<<<<< HEAD
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name="com.android.mobilemarcom.LoginActivity"></activity>
     </application>
 </manifest>
+=======
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".souvenir.SouvenirActivity" />
+        <activity android:name=".t_souvenir.TransaksiSouvenirActivity" />
+        <activity android:name=".souvenir.SouvenirDaftarActivity" />
+        <activity android:name=".t_souvenir.TransaksiSouvenirDaftarActivity" />
+        <activity android:name=".souvenir.EditSouvenirActivity" />
+        <activity android:name=".t_souvenir.TransaksiSouvenirAddItemActivity"></activity>
+    </application>
+
+</manifest>
+>>>>>>> 3f2a13e56ca13066cdc1eae5256230e5d75ba934

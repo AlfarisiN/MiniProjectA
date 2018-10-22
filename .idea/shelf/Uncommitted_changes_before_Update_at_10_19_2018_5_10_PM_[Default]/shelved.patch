@@ -1,0 +1,54 @@
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"VcsDirectoryMappings\">\n    <mapping directory=\"$PROJECT_DIR$\" vcs=\"Git\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/vcs.xml	(revision fde37287b723221e4f384add618544b0450976f9)
++++ .idea/vcs.xml	(date 1539941153522)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="VcsDirectoryMappings">
+-    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++    <mapping directory="" vcs="Git" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// Top-level build file where you can add configuration options common to all sub-projects/modules.\n\nbuildscript {\n    \n    repositories {\n        google()\n        jcenter()\n    }\n    dependencies {\n        classpath 'com.android.tools.build:gradle:3.1.4'\n        \n\n        // NOTE: Do not place your application dependencies here; they belong\n        // in the individual module build.gradle files\n    }\n}\n\nallprojects {\n    repositories {\n        google()\n        jcenter()\n    }\n}\n\ntask clean(type: Delete) {\n    delete rootProject.buildDir\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- build.gradle	(revision fde37287b723221e4f384add618544b0450976f9)
++++ build.gradle	(date 1539941153672)
+@@ -7,7 +7,7 @@
+         jcenter()
+     }
+     dependencies {
+-        classpath 'com.android.tools.build:gradle:3.1.4'
++        classpath 'com.android.tools.build:gradle:3.2.1'
+         
+ 
+         // NOTE: Do not place your application dependencies here; they belong
+Index: gradle/wrapper/gradle-wrapper.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#Fri Oct 19 14:35:46 ICT 2018\ndistributionBase=GRADLE_USER_HOME\ndistributionPath=wrapper/dists\nzipStoreBase=GRADLE_USER_HOME\nzipStorePath=wrapper/dists\ndistributionUrl=https\\://services.gradle.org/distributions/gradle-4.4-all.zip\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- gradle/wrapper/gradle-wrapper.properties	(revision fde37287b723221e4f384add618544b0450976f9)
++++ gradle/wrapper/gradle-wrapper.properties	(date 1539941153784)
+@@ -1,6 +1,6 @@
+-#Fri Oct 19 14:35:46 ICT 2018
++#Fri Oct 19 14:49:49 ICT 2018
+ distributionBase=GRADLE_USER_HOME
+ distributionPath=wrapper/dists
+ zipStoreBase=GRADLE_USER_HOME
+ zipStorePath=wrapper/dists
+-distributionUrl=https\://services.gradle.org/distributions/gradle-4.4-all.zip
++distributionUrl=https\://services.gradle.org/distributions/gradle-4.6-all.zip
