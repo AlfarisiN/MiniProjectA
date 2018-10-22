@@ -70,12 +70,7 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-<<<<<<< HEAD
-        if (id == R.id.drawerEmployee) {
-=======
         if (id == R.id.employee) {
->>>>>>> 979e8dbddc9d12be883b951ed18a31dbf3996a4d
 //            setActionBarTitle("menu kiri 1");
             EmployeeActivity employeeActivity = new EmployeeActivity();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
