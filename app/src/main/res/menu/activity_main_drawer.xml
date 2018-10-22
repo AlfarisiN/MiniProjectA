@@ -5,30 +5,34 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/drawerEmployee"
+            android:id="@+id/employee"
             android:icon="@drawable/ic_employee"
             android:title="Employee" />
         <item
-            android:id="@+id/drawerUser"
-            android:icon="@drawable/ic_menu_gallery"
+            android:id="@+id/user"
+            android:icon="@drawable/ic_user"
             android:title="User" />
         <item
-            android:id="@+id/drawerSouvenir"
+            android:id="@+id/souvenir"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Souvenir" />
+            android:title="Slideshow" />
         <item
-            android:id="@+id/drawerEventRequest"
+            android:id="@+id/event"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Event Request" />
-        <item
-            android:id="@+id/drawerSouvenirStock"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Souvenir Stock" />
-        <item
-            android:id="@+id/drawerSouvenirRequest"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Souvenir Request" />
-
+            android:title="Tools" />
     </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Send" />
+        </menu>
+    </item>
 
 </menu>
