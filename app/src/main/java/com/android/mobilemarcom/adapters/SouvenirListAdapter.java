@@ -47,4 +47,9 @@ public class SouvenirListAdapter extends RecyclerView.Adapter<ViewHolderSouvenir
         }
         return 0;
     }
+
+    public void filterList(List<ModelSouvenir> filterList){
+        souvenirList = filterList;
+        notifyDataSetChanged();
+    }
 }

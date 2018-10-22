@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <AutoCompleteTextView
+        <EditText
             android:id="@+id/search_souvenir"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -37,28 +37,32 @@
         android:layout_height="35dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
-        android:background="@android:color/holo_blue_bright"
+        android:background="@color/colorPrimaryDark"
         android:orientation="horizontal">
 
         <TextView
+            android:textColor="@color/colorWhite"
             android:layout_width="80dp"
             android:layout_height="35dp"
             android:text="CODE"
             android:textAlignment="center" />
 
         <TextView
+            android:textColor="@color/colorWhite"
             android:layout_width="80dp"
             android:layout_height="35dp"
             android:text="NAME"
             android:textAlignment="center" />
 
         <TextView
+            android:textColor="@color/colorWhite"
             android:layout_width="80dp"
             android:layout_height="35dp"
             android:text="QUANTITY"
             android:textAlignment="center" />
 
         <TextView
+            android:textColor="@color/colorWhite"
             android:layout_width="80dp"
             android:layout_height="35dp"
             android:text="STATUS"

@@ -8,11 +8,14 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.android.mobilemarcom.R;
@@ -30,7 +33,7 @@ public class SouvenirActivity extends Fragment {
     private List<ModelSouvenir> listSouvenir = new ArrayList<>();
 
     //AutoComplete Search
-    public AutoCompleteTextView searchSouvenir;
+    public EditText searchSouvenir;
 
     // ListArray of Sugesstion need to Load data from API
     private static final Integer[] employees = new Integer[] {1,2,3,4,5};
@@ -43,13 +46,44 @@ public class SouvenirActivity extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(),
                 LinearLayoutManager.VERTICAL, false);
         recyclerList.setLayoutManager(layoutManager);
-        searchSouvenir = (AutoCompleteTextView) view.findViewById(R.id.search_souvenir);
-        searchSouvenir.setThreshold(3);
-        ArrayAdapter<Integer> adapterSearch = new ArrayAdapter<Integer>(""+this,R.layout.support_simple_spinner_dropdown_item,employees);
+        searchSouvenir = (EditText) view.findViewById(R.id.search_souvenir);
+        recyclerList.setVisibility(View.INVISIBLE);
+        searchSouvenir.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (searchSouvenir.getText().toString().trim().length() == 0){
+                    recyclerList.setVisibility(View.INVISIBLE);
+                } else {
+                    recyclerList.setVisibility(View.VISIBLE);
+                    filter(toString());
+                }
+            }
+        });
+
         addDummyList();
         tampilkanListSouvenir();
         return view;
 
+    }
+
+    private void filter(String text){
+        ArrayList<ModelSouvenir> filteredList = new ArrayList<>();
+        for (ModelSouvenir item : listSouvenir){
+            if (item.getName_souvenir().toLowerCase().contains(text.toLowerCase())) {
+                filteredList.add(item);
+            }
+        }
+        adapterSouvenir.filterList(filteredList);
     }
 
     private void addDummyList() {
