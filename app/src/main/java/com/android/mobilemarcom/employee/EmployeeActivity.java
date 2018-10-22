@@ -1,9 +1,6 @@
 package com.android.mobilemarcom.employee;
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 7122913f922846945cd7ae306549f988661af7bb
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -17,12 +14,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-<<<<<<< HEAD
+
 
 import com.android.mobilemarcom.R;
 
-=======
->>>>>>> 7122913f922846945cd7ae306549f988661af7bb
 import android.widget.Toast;
 
 import com.android.mobilemarcom.R;
@@ -34,11 +29,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 7122913f922846945cd7ae306549f988661af7bb
 public class EmployeeActivity extends Fragment {
     private RecyclerView recyclerEmployee;
     private EditText nameSearch;
@@ -51,10 +42,6 @@ public class EmployeeActivity extends Fragment {
     private int totalPageCount = 1;
     private List<Datum> listUser = new ArrayList<>();
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 7122913f922846945cd7ae306549f988661af7bb
     public EmployeeActivity() {
     }
 
@@ -62,10 +49,7 @@ public class EmployeeActivity extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_employee, container, false);
-<<<<<<< HEAD
-=======
 
->>>>>>> 7122913f922846945cd7ae306549f988661af7bb
         recyclerEmployee = (RecyclerView) view.findViewById(R.id.recyclerEmployee);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(),
                 LinearLayoutManager.VERTICAL, false);
@@ -76,10 +60,7 @@ public class EmployeeActivity extends Fragment {
             @Override
             public void onClick(View view) {
                 cariData(pageCount);
-<<<<<<< HEAD
 
-=======
->>>>>>> 7122913f922846945cd7ae306549f988661af7bb
             }
         });
         return view;
