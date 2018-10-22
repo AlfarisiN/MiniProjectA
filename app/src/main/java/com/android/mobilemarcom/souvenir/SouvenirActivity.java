@@ -11,6 +11,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
 
 import com.android.mobilemarcom.R;
@@ -20,12 +22,20 @@ import com.android.mobilemarcom.model.ModelSouvenir;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 public class SouvenirActivity extends Fragment {
     private RecyclerView recyclerList;
     private SouvenirListAdapter adapterSouvenir;
     private List<ModelSouvenir> listSouvenir = new ArrayList<>();
 
+    //AutoComplete Search
+    public AutoCompleteTextView searchSouvenir;
+
+    // ListArray of Sugesstion need to Load data from API
+    private static final Integer[] employees = new Integer[] {1,2,3,4,5};
     @Nullable
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_souvenir,container,false);
@@ -33,6 +43,9 @@ public class SouvenirActivity extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(),
                 LinearLayoutManager.VERTICAL, false);
         recyclerList.setLayoutManager(layoutManager);
+        searchSouvenir = (AutoCompleteTextView) view.findViewById(R.id.search_souvenir);
+        searchSouvenir.setThreshold(3);
+        ArrayAdapter<Integer> adapterSearch = new ArrayAdapter<Integer>(""+this,R.layout.support_simple_spinner_dropdown_item,employees);
         addDummyList();
         tampilkanListSouvenir();
         return view;
@@ -41,10 +54,10 @@ public class SouvenirActivity extends Fragment {
 
     private void addDummyList() {
         int index = 1;
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 20; i++) {
             ModelSouvenir data = new ModelSouvenir();
             data.setCode_souvenir("S000" + index);
-            data.setName_souvenir("Dummy Major");
+            data.setName_souvenir("Dummy Major" + index);
             data.setQuantity("Dummy Quantity");
             data.setStatus("Dummy Aktif");
             listSouvenir.add(data);
