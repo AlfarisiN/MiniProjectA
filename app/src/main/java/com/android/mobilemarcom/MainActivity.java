@@ -71,15 +71,13 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-<<<<<<< HEAD
-
-=======
->>>>>>> 7122913f922846945cd7ae306549f988661af7bb
         if (id == R.id.employee) {
-//            setActionBarTitle("menu kiri 1");
-            EmployeeActivity employeeActivity = new EmployeeActivity();
+            setActionBarTitle("menu kiri 1");
+//            Intent i = new Intent(this, EmployeeTable.class);
+//            startActivity(i);
+            EmployeeActivity employeeTable = new EmployeeActivity();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.frame_all_menu, employeeActivity,"menu kiri 1");
+            fragmentTransaction.replace(R.id.frame_all_menu, employeeTable,"menu kiri 1");
             fragmentTransaction.commit();
 
         } else if (id == R.id.user) {
