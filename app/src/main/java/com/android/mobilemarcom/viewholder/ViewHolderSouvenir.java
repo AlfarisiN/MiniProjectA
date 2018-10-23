@@ -8,7 +8,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+<<<<<<< HEAD
 import android.widget.PopupMenu;
+=======
+>>>>>>> 0bbf3609c1d8c8437b634ab8633b8b3936ce3344
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,7 +36,11 @@ public class ViewHolderSouvenir extends RecyclerView.ViewHolder {
     }
 
 
+<<<<<<< HEAD
     public void setModelSouvenir(final Context context, ModelSouvenir souvenir){
+=======
+    public void setModelSouvenir(Context context, ModelSouvenir souvenir){
+>>>>>>> 0bbf3609c1d8c8437b634ab8633b8b3936ce3344
         //set Code
         String code = souvenir.getCode_souvenir();
         souvenir_list_code.setText(code);
@@ -53,6 +60,7 @@ public class ViewHolderSouvenir extends RecyclerView.ViewHolder {
         image_souvenir_option.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+<<<<<<< HEAD
                 PopupMenu popupMenu = new PopupMenu(context, image_souvenir_option);
                 popupMenu.getMenuInflater().inflate(R.menu.popup, popupMenu.getMenu());
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -71,6 +79,9 @@ public class ViewHolderSouvenir extends RecyclerView.ViewHolder {
                     }
                 });
                 popupMenu.show();
+=======
+
+>>>>>>> 0bbf3609c1d8c8437b634ab8633b8b3936ce3344
             }
         });
     }
