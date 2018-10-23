@@ -14,11 +14,11 @@ import com.android.mobilemarcom.viewholder.ViewHolderSouvenir;
 
 import java.util.List;
 
-public class SouvenirListAdapter extends RecyclerView.Adapter<ViewHolderSouvenir> {
+public class SouvenirAdapter extends RecyclerView.Adapter<ViewHolderSouvenir> {
     private Context context;
     private List<ModelSouvenir> souvenirList;
 
-    public SouvenirListAdapter(Context context, List<ModelSouvenir> souvenirList) {
+    public SouvenirAdapter(Context context, List<ModelSouvenir> souvenirList) {
         this.context = context;
         this.souvenirList = souvenirList;
     }
@@ -35,9 +35,10 @@ public class SouvenirListAdapter extends RecyclerView.Adapter<ViewHolderSouvenir
     }
 
     @Override
-    public void onBindViewHolder(ViewHolderSouvenir holder, final int position) {
+    public void onBindViewHolder(final ViewHolderSouvenir holder, final int position) {
         final ModelSouvenir souvenir = souvenirList.get(position);
         holder.setModelSouvenir(context, souvenir);
+
     }
 
     @Override
