@@ -29,6 +29,7 @@
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:layout_margin="@dimen/fab_margin"
             android:src="@drawable/search"
             app:backgroundTint="@color/colorWhite"
@@ -39,6 +40,54 @@
             android:layout_height="match_parent"
             android:layout_weight="2"/>
     </LinearLayout>
+=======
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="ID"
+                android:textSize="16sp" />
+
+            <TextView
+                android:textSize="16sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="FULL NAME"/>
+
+            <TextView
+                android:textSize="16sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="COMPANY"/>
+
+            <TextView
+                android:textSize="16sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="STATUS"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/option"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+
+                    android:src="@color/colorPrimary"
+                    app:srcCompat="@drawable/icon_burger"
+                    />
+
+            </LinearLayout>
+>>>>>>> b8bc61ccbab813494b56909ea6033b8e0f0f5c31
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
