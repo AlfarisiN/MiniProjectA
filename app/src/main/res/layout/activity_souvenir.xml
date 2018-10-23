@@ -22,7 +22,7 @@
             android:hint="@string/txt_search_by_name" />
 
         <Button
-            android:id="@+id/btn_add_souvenir"
+            android:id="@+id/btn_souvenir"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginLeft="10dp"
