@@ -128,15 +128,15 @@ public class EmployeeActivity extends Fragment {
                 }
             }
         });
-        final EditText status = new EditText(getContext());
-        status.setHint("Status");
+        final EditText email = new EditText(getContext());
+        email.setHint("Email");
 
         LinearLayout layout = new LinearLayout(getContext());
         layout.setOrientation(LinearLayout.VERTICAL);
         layout.addView(id);
         layout.addView(fullname);
         layout.addView(company);
-        layout.addView(status);
+        layout.addView(email);
         layout.setPadding(10, 10, 10, 10);
 
         new AlertDialog.Builder(getContext())
