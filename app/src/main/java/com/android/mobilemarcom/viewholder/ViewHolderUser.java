@@ -42,9 +42,16 @@ public class ViewHolderUser extends RecyclerView.ViewHolder {
                     @Override
                     public boolean onMenuItemClick(MenuItem menuItem) {
                         switch (menuItem.getItemId()){
+<<<<<<< HEAD
                             case R.id.edit:
                                 Intent in = new Intent(context, EditUserActivity.class);
                                 context.startActivity(in);
+=======
+                            case R.id.edit:1
+                                Intent in = new Intent(context, null);
+                                context.startActivity(in);
+                                Toast.makeText(context,"Anda memilih edit",Toast.LENGTH_SHORT).show();
+>>>>>>> 19f7fef19d7ad7f6a1efee51f0c4c5962ee1102b
                                 return true;
                             case R.id.deactive:
                                 Toast.makeText(context,"Anda memilih Deactive",Toast.LENGTH_SHORT).show();
