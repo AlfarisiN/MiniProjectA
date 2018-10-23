@@ -11,13 +11,7 @@
     <color name="green">#a4c639</color>
 
     <color name="transparent">#00000000</color>
-<<<<<<< HEAD
-    <color name="colorWhite">#ffffff</color>
-=======
-
-
     <color name="colorWhite">#FFFFFF</color>
->>>>>>> b8bc61ccbab813494b56909ea6033b8e0f0f5c31
     <color name="colorBlack">#000000</color>
     <color name="colorGrey">#C2C3C2</color>
 </resources>

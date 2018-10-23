@@ -1,12 +1,7 @@
 package com.android.mobilemarcom.employee;
 
-<<<<<<< HEAD
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-=======
-
-import android.app.ProgressDialog;
->>>>>>> b8bc61ccbab813494b56909ea6033b8e0f0f5c31
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -19,15 +14,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-<<<<<<< HEAD
 import android.widget.LinearLayout;
 import android.widget.TableRow;
-=======
-
-
-import com.android.mobilemarcom.R;
-
->>>>>>> b8bc61ccbab813494b56909ea6033b8e0f0f5c31
 import android.widget.Toast;
 
 import com.android.mobilemarcom.R;
@@ -36,13 +24,6 @@ import com.android.mobilemarcom.adapters.UsersAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-<<<<<<< HEAD
-=======
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
->>>>>>> b8bc61ccbab813494b56909ea6033b8e0f0f5c31
 public class EmployeeActivity extends Fragment {
     private RecyclerView recyclerUser;
     private UsersAdapter userListAdapter;
@@ -50,7 +31,6 @@ public class EmployeeActivity extends Fragment {
     private DialogAutoComplete dialogChooseCompany;
     private EditText nameSearch;
     private Button buttonSearchName;
-<<<<<<< HEAD
     private ImageView addData;
     private TableRow rowlay;
     private String[] ID = {
@@ -73,23 +53,13 @@ public class EmployeeActivity extends Fragment {
             "Inaktif",
             "Aktif"
     };
-=======
-    private ImageView option;
-    private List<String> stringList = new ArrayList<>();
-    private RequestAPIServices2 apiServices2;
-    private boolean isStillLoading = false;
-    private int pageCount = 1;
-    private int totalPageCount = 1;
-    private List<Datum> listUser = new ArrayList<>();
-
     public EmployeeActivity() {
     }
->>>>>>> b8bc61ccbab813494b56909ea6033b8e0f0f5c31
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-<<<<<<< HEAD
+
         View view = inflater.inflate(R.layout.activity_employee2,container,false);
         recyclerUser = (RecyclerView) view.findViewById(R.id.recyclerUser);
         nameSearch = (EditText) view.findViewById(R.id.nameSearchUser);
@@ -105,24 +75,12 @@ public class EmployeeActivity extends Fragment {
                 tampilkanListUser();
             }
         });
-=======
-        View view = inflater.inflate(R.layout.activity_employee, container, false);
-
-        recyclerEmployee = (RecyclerView) view.findViewById(R.id.recyclerEmployee);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(),
-                LinearLayoutManager.VERTICAL, false);
-        recyclerEmployee.setLayoutManager(layoutManager);
         nameSearch = (EditText) view.findViewById(R.id.nameSearch);
->>>>>>> b8bc61ccbab813494b56909ea6033b8e0f0f5c31
         buttonSearchName = (Button) view.findViewById(R.id.buttonSearchName);
         buttonSearchName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-<<<<<<< HEAD
-=======
-                cariData(pageCount);
->>>>>>> b8bc61ccbab813494b56909ea6033b8e0f0f5c31
-
+//                cariData(pageCount);
             }
         });
         addData = (ImageView) view.findViewById(R.id.addData);
