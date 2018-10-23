@@ -60,7 +60,7 @@ public class EmployeeActivity extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.activity_employee,container,false);
+        View view = inflater.inflate(R.layout.activity_employee2,container,false);
         recyclerUser = (RecyclerView) view.findViewById(R.id.recyclerUser);
         nameSearch = (EditText) view.findViewById(R.id.nameSearchUser);
         rowlay = (TableRow) view.findViewById(R.id.rowlay);
