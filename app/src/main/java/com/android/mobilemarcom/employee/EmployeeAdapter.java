@@ -8,9 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.android.mobilemarcom.R;
-import com.android.mobilemarcom.viewholder.ViewHolderUser;
+import com.android.mobilemarcom.viewholder.ViewHolderEmployee;
 
-public class EmployeeAdapter extends RecyclerView.Adapter<ViewHolderUser> {
+public class EmployeeAdapter extends RecyclerView.Adapter<ViewHolderEmployee> {
     private Context context;
     private String[] ID;
     private String[] FULLNAME;
@@ -26,19 +26,19 @@ public class EmployeeAdapter extends RecyclerView.Adapter<ViewHolderUser> {
 
     @NonNull
     @Override
-    public ViewHolderUser onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public ViewHolderEmployee onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.custom_list_user,viewGroup,false);
-        return new ViewHolderUser(view);
+        return new ViewHolderEmployee(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolderUser viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ViewHolderEmployee viewHolder, int i) {
         if(ID.length>0){
             String id_employee = ID[i];
             String fullname_employee = FULLNAME[i];
             String company_employe = COMPANY[i];
             String status_employe = STATUS[i];
-            viewHolder.setModel(context,id_employee,fullname_employee,company_employe,status_employe);
+            viewHolder .setModel(context,id_employee,fullname_employee,company_employe,status_employe);
             System.out.println(ID.length);
         }
     }

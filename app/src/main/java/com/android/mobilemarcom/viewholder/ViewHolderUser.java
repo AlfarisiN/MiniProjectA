@@ -1,6 +1,7 @@
 package com.android.mobilemarcom.viewholder;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.mobilemarcom.R;
+import com.android.mobilemarcom.model.User;
+import com.android.mobilemarcom.user.EditUserActivity;
 
 public class ViewHolderUser extends RecyclerView.ViewHolder {
     private TextView empName,username,role,status;
@@ -25,11 +28,11 @@ public class ViewHolderUser extends RecyclerView.ViewHolder {
         imageUser = (ImageView) itemView.findViewById(R.id.imageUser);
     }
 
-    public void setModel(final Context context, String employe_name, String username_employe, String role_employe, String status_employe){
-        empName.setText(employe_name);
-        username.setText(username_employe);
-        role.setText(role_employe);
-        status.setText(status_employe);
+    public void setModel(final Context context, User user){
+        empName.setText(user.getEmp_name());
+        username.setText(user.getUsername());
+        role.setText(user.getRole());
+        status.setText(user.getStatus());
         imageUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,6 +43,13 @@ public class ViewHolderUser extends RecyclerView.ViewHolder {
                     public boolean onMenuItemClick(MenuItem menuItem) {
                         switch (menuItem.getItemId()){
                             case R.id.edit:
+                            case R.id.edit:
+                                Intent in = new Intent(context, EditUserActivity.class);
+                                context.startActivity(in);
+
+                            case R.id.edit:1
+                                Intent in = new Intent(context, null);
+                                context.startActivity(in);
                                 Toast.makeText(context,"Anda memilih edit",Toast.LENGTH_SHORT).show();
                                 return true;
                             case R.id.deactive:

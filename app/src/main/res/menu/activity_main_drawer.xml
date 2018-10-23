@@ -17,6 +17,10 @@
             android:icon="@mipmap/icon_chevron"
             android:title="Souvenir" />
         <item
+            android:id="@+id/souvenir_stok"
+            android:icon="@drawable/icon_add"
+            android:title="Souvenir Stok"/>
+        <item
             android:id="@+id/event"
             android:icon="@drawable/ic_menu_manage"
             android:title="Tools" />
