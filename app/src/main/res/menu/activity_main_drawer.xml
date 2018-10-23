@@ -19,7 +19,7 @@
         <item
             android:id="@+id/event"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Unit" />
+            android:title="Tools" />
     </group>
 
     <item android:title="Communicate">

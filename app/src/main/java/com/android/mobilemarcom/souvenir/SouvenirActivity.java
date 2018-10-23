@@ -2,7 +2,6 @@ package com.android.mobilemarcom.souvenir;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -16,7 +15,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -30,11 +28,9 @@ import java.util.List;
 
 
 public class SouvenirActivity extends Fragment {
-
     private RecyclerView recyclerList;
     private SouvenirListAdapter adapterSouvenir;
     private List<ModelSouvenir> listSouvenir = new ArrayList<>();
-    private Button btn_add_souvenir;
 
     //AutoComplete Search
     public EditText searchSouvenir;
@@ -69,20 +65,12 @@ public class SouvenirActivity extends Fragment {
                     recyclerList.setVisibility(View.INVISIBLE);
                 } else {
                     recyclerList.setVisibility(View.VISIBLE);
-                    filter(editable.toString());
+                    filter(toString());
                 }
             }
         });
 
-        btn_add_souvenir = (Button)view.findViewById(R.id.btn_add_souvenir);
-        btn_add_souvenir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), SouvenirDaftarActivity.class);
-                startActivity(intent);
-            }
-        });
-
+        addDummyList();
         tampilkanListSouvenir();
         return view;
 
@@ -98,18 +86,9 @@ public class SouvenirActivity extends Fragment {
         adapterSouvenir.filterList(filteredList);
     }
 
-
-    private void tampilkanListSouvenir(){
-        addDummyList();
-        if(adapterSouvenir == null){
-            adapterSouvenir = new SouvenirListAdapter(getContext(), listSouvenir);
-            recyclerList.setAdapter(adapterSouvenir);
-        }
-    }
-
     private void addDummyList() {
         int index = 1;
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 20; i++) {
             ModelSouvenir data = new ModelSouvenir();
             data.setCode_souvenir("S000" + index);
             data.setName_souvenir("Dummy Major" + index);
@@ -118,6 +97,13 @@ public class SouvenirActivity extends Fragment {
             listSouvenir.add(data);
             index++;
         }
+    }
+    private void tampilkanListSouvenir(){
+        if(adapterSouvenir == null){
+            adapterSouvenir = new SouvenirListAdapter(getContext(), listSouvenir);
+            recyclerList.setAdapter(adapterSouvenir);
+        }
+        adapterSouvenir.notifyDataSetChanged();
     }
 
 }
