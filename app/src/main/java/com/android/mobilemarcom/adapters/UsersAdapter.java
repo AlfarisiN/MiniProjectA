@@ -27,6 +27,9 @@ public class UsersAdapter extends RecyclerView.Adapter<ViewHolderUser> implement
         this.filterList = userArrayList;
     }
 
+    public UsersAdapter(Context context, String[] id, String[] fullname, String[] company, String[] status) {
+    }
+
     @NonNull
     @Override
     public ViewHolderUser onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {

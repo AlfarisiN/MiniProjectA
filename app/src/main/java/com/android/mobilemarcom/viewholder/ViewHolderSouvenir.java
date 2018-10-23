@@ -31,9 +31,6 @@ public class ViewHolderSouvenir extends RecyclerView.ViewHolder {
         image_souvenir_option = (ImageView) itemView.findViewById(R.id.image_souvenir_option);
 
     }
-
-
-
         public void setModelSouvenir(final Context context, ModelSouvenir souvenir){
             //set Code
             String code = souvenir.getCode_souvenir();
