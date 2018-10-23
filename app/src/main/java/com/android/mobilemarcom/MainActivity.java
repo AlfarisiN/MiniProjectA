@@ -13,6 +13,7 @@ import android.view.MenuItem;
 
 import com.android.mobilemarcom.employee.EmployeeActivity;
 import com.android.mobilemarcom.souvenir.SouvenirActivity;
+import com.android.mobilemarcom.unit.UnitFragment;
 import com.android.mobilemarcom.user.UserActivity;
 
 public class MainActivity extends AppCompatActivity
@@ -92,6 +93,12 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.commit();
 
         } else if (id == R.id.event) {
+
+            UnitFragment unitFragment= new UnitFragment();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.frame_all_menu, unitFragment,"menu kiri 4");
+            fragmentTransaction.commit();
+
 
         } else if (id == R.id.nav_share) {
 
