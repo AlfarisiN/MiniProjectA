@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.android.mobilemarcom">
+
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -19,14 +21,16 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
+
+
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name="com.android.mobilemarcom.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".souvenir.SouvenirActivity" />
         <activity android:name=".t_souvenir.TransaksiSouvenirActivity" />
         <activity android:name=".souvenir.SouvenirDaftarActivity" />
         <activity android:name=".t_souvenir.TransaksiSouvenirDaftarActivity" />
         <activity android:name=".souvenir.EditSouvenirActivity" />
-        <activity android:name=".employee.EmployeeTable"></activity>
         <activity android:name=".t_souvenir.TransaksiSouvenirAddItemActivity"></activity>
     </application>
 </manifest>
