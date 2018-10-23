@@ -42,7 +42,7 @@ public class ViewHolderUser extends RecyclerView.ViewHolder {
                     public boolean onMenuItemClick(MenuItem menuItem) {
                         switch (menuItem.getItemId()){
                             case R.id.edit:
-                                Intent in = new Intent(context, EditUserActivity.class);
+                                Intent in = new Intent(context, null);
                                 context.startActivity(in);
                                 return true;
                             case R.id.deactive:
