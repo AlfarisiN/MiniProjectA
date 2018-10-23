@@ -22,11 +22,11 @@
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name="com.android.mobilemarcom.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".souvenir.SouvenirActivity" />
-        <activity android:name=".t_souvenir.TransaksiSouvenirActivity" />
+        <activity android:name=".souvenir.SouvenirFragment" />
+        <activity android:name=".t_souvenir.SouvenirStokFragment" />
         <activity android:name=".souvenir.SouvenirDaftarActivity" />
         <activity android:name=".t_souvenir.TransaksiSouvenirDaftarActivity" />
         <activity android:name=".souvenir.EditSouvenirActivity" />
-        <activity android:name=".t_souvenir.TransaksiSouvenirAddItemActivity"></activity>
+        <activity android:name=".t_souvenir.SouvenirStokAddItemActivity"></activity>
     </application>
 </manifest>
