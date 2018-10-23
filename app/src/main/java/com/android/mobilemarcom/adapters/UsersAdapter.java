@@ -6,22 +6,25 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 
 import com.android.mobilemarcom.R;
+import com.android.mobilemarcom.filter.Userfilter;
+import com.android.mobilemarcom.model.User;
 import com.android.mobilemarcom.viewholder.ViewHolderUser;
 
-public class UsersAdapter extends RecyclerView.Adapter<ViewHolderUser> {
+import java.util.ArrayList;
+
+public class UsersAdapter extends RecyclerView.Adapter<ViewHolderUser> implements Filterable {
     private Context context;
-    private String[] EMP_NAMES;
-    private String[] USERNAME;
-    private String[] ROLE;
-    private String[] STATUS;
-    public UsersAdapter(Context context,String[] EMP_NAMES,String[] USERNAME, String[] ROLE,String[] STATUS) {
+    public ArrayList<User> userArrayList,filterList;
+    public Userfilter filter;
+
+    public UsersAdapter(Context context,ArrayList<User> userArrayList) {
         this.context = context;
-        this.EMP_NAMES = EMP_NAMES;
-        this.USERNAME = USERNAME;
-        this.ROLE = ROLE;
-        this.STATUS = STATUS;
+        this.userArrayList = userArrayList;
+        this.filterList = userArrayList;
     }
 
     @NonNull
@@ -33,23 +36,35 @@ public class UsersAdapter extends RecyclerView.Adapter<ViewHolderUser> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderUser viewHolder, int i) {
-        if(EMP_NAMES.length>0){
-            String employe_name = EMP_NAMES[i];
-            String username_employe = USERNAME[i];
-            String role_employe = ROLE[i];
-            String status_employe = STATUS[i];
-            viewHolder.setModel(context,employe_name,username_employe,role_employe,status_employe);
-            System.out.println(EMP_NAMES.length);
-        }
+        User user = userArrayList.get(i);
+        viewHolder.setModel(context,user);
+//        if(EMP_NAMES.length>0){
+//            String employe_name = EMP_NAMES[i];
+//            String username_employe = USERNAME[i];
+//            String role_employe = ROLE[i];
+//            String status_employe = STATUS[i];
+//            viewHolder.setModel(context,employe_name,username_employe,role_employe,status_employe);
+//            System.out.println(EMP_NAMES.length);
+//        }
     }
 
     @Override
     public int getItemCount() {
-        if(EMP_NAMES!=null){
-            return EMP_NAMES.length;
+        if(userArrayList!=null){
+            return userArrayList.size();
         }else{
             return 0;
         }
 
+    }
+
+    @Override
+    public Filter getFilter() {
+        if(filter==null)
+        {
+            filter=new Userfilter(filterList,this);
+        }
+
+        return filter;
     }
 }

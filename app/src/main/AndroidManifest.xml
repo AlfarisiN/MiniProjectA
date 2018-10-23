@@ -4,14 +4,30 @@
 
 
     <uses-permission android:name="android.permission.INTERNET" />
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+    <uses-permission android:name="android.permission.INTERNET" />
+>>>>>>> 19f7fef19d7ad7f6a1efee51f0c4c5962ee1102b
+>>>>>>> cc0e16d571c631ea55abfa9dc5f0b53c1c428852
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+<<<<<<< HEAD
         android:theme="@style/AppTheme">
+=======
+<<<<<<< HEAD
+        android:theme="@style/AppTheme">
+=======
+        android:theme="@style/AppTheme"/>
+>>>>>>> 19f7fef19d7ad7f6a1efee51f0c4c5962ee1102b
+>>>>>>> cc0e16d571c631ea55abfa9dc5f0b53c1c428852
         <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,6 +36,10 @@
         </activity>
         <activity
             android:name=".MainActivity"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> cc0e16d571c631ea55abfa9dc5f0b53c1c428852
             android:label="@string/title_activity_main"
 
 
@@ -34,3 +54,10 @@
         <activity android:name=".t_souvenir.TransaksiSouvenirAddItemActivity"></activity>
     </application>
 </manifest>
+<<<<<<< HEAD
+=======
+=======
+            android:label="@string/title_activity_main"></activity>
+        </manifest>
+>>>>>>> 19f7fef19d7ad7f6a1efee51f0c4c5962ee1102b
+>>>>>>> cc0e16d571c631ea55abfa9dc5f0b53c1c428852
