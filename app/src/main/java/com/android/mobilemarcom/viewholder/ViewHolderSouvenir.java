@@ -8,10 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-<<<<<<< HEAD
 import android.widget.PopupMenu;
-=======
->>>>>>> 0bbf3609c1d8c8437b634ab8633b8b3936ce3344
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +23,7 @@ public class ViewHolderSouvenir extends RecyclerView.ViewHolder {
 
     public ViewHolderSouvenir(@NonNull View itemView) {
         super(itemView);
-        
+
         souvenir_list_code = (TextView) itemView.findViewById(R.id.souvenir_list_code);
         souvenir_list_name = (TextView) itemView.findViewById(R.id.souvenir_list_name);
         souvenir_list_quantity = (TextView) itemView.findViewById(R.id.souvenir_list_quantity);
@@ -36,53 +33,46 @@ public class ViewHolderSouvenir extends RecyclerView.ViewHolder {
     }
 
 
-<<<<<<< HEAD
-    public void setModelSouvenir(final Context context, ModelSouvenir souvenir){
-=======
-    public void setModelSouvenir(Context context, ModelSouvenir souvenir){
->>>>>>> 0bbf3609c1d8c8437b634ab8633b8b3936ce3344
-        //set Code
-        String code = souvenir.getCode_souvenir();
-        souvenir_list_code.setText(code);
 
-        //set Name
-        String name = souvenir.getName_souvenir();
-        souvenir_list_name.setText(name);
+        public void setModelSouvenir(final Context context, ModelSouvenir souvenir){
+            //set Code
+            String code = souvenir.getCode_souvenir();
+            souvenir_list_code.setText(code);
 
-        //set quantity
-        String quantity = souvenir.getQuantity();
-        souvenir_list_quantity.setText(quantity);
+            //set Name
+            String name = souvenir.getName_souvenir();
+            souvenir_list_name.setText(name);
 
-        //set Status
-        String status = souvenir.getStatus();
-        souvenir_list_status.setText(status);
+            //set quantity
+            String quantity = souvenir.getQuantity();
+            souvenir_list_quantity.setText(quantity);
 
-        image_souvenir_option.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-<<<<<<< HEAD
-                PopupMenu popupMenu = new PopupMenu(context, image_souvenir_option);
-                popupMenu.getMenuInflater().inflate(R.menu.popup, popupMenu.getMenu());
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-                        switch (item.getItemId()){
-                            case R.id.edit:
-                                Toast.makeText(context, "Edit", Toast.LENGTH_SHORT).show();
-                                return true;
-                            case R.id.deactive:
-                                Toast.makeText(context, "Deactive", Toast.LENGTH_SHORT).show();
-                                return true;
+            //set Status
+            String status = souvenir.getStatus();
+            souvenir_list_status.setText(status);
+
+            image_souvenir_option.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    PopupMenu popupMenu = new PopupMenu(context, image_souvenir_option);
+                    popupMenu.getMenuInflater().inflate(R.menu.popup, popupMenu.getMenu());
+                    popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                        @Override
+                        public boolean onMenuItemClick(MenuItem item) {
+                            switch (item.getItemId()) {
+                                case R.id.edit:
+                                    Toast.makeText(context, "Edit", Toast.LENGTH_SHORT).show();
+                                    return true;
+                                case R.id.deactive:
+                                    Toast.makeText(context, "Deactive", Toast.LENGTH_SHORT).show();
+                                    return true;
                                 default:
                                     return false;
+                            }
                         }
-                    }
-                });
-                popupMenu.show();
-=======
-
->>>>>>> 0bbf3609c1d8c8437b634ab8633b8b3936ce3344
-            }
-        });
+                    });
+                    popupMenu.show();
+                }
+            });
+        }
     }
-}
