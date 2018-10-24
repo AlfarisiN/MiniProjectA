@@ -46,12 +46,10 @@
             android:textColor="@color/colorBlack"
             android:textSize="9sp" />
 
-    <Button
-        android:id="@+id/btn_souvenir_option"
-        android:layout_gravity="center"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:text="="
-        android:textColor="@color/colorWhite"
-        android:textSize="9sp" />
+        <ImageView
+            android:id="@+id/image_souvenir_option"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/icon_burger" />
+
 </LinearLayout>

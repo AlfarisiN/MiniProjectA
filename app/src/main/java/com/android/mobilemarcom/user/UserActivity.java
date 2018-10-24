@@ -110,6 +110,4 @@ public class UserActivity extends Fragment {
     }
 
 
-
-
 }

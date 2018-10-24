@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.android.mobilemarcom.R;
 import com.android.mobilemarcom.model.User;
+import com.android.mobilemarcom.user.EditUserActivity;
 
 public class ViewHolderUser extends RecyclerView.ViewHolder {
     private TextView empName,username,role,status;
@@ -42,8 +43,14 @@ public class ViewHolderUser extends RecyclerView.ViewHolder {
                     public boolean onMenuItemClick(MenuItem menuItem) {
                         switch (menuItem.getItemId()){
                             case R.id.edit:
+                            case R.id.edit:
                                 Intent in = new Intent(context, EditUserActivity.class);
                                 context.startActivity(in);
+
+                            case R.id.edit:1
+                                Intent in = new Intent(context, null);
+                                context.startActivity(in);
+                                Toast.makeText(context,"Anda memilih edit",Toast.LENGTH_SHORT).show();
                                 return true;
                             case R.id.deactive:
                                 Toast.makeText(context,"Anda memilih Deactive",Toast.LENGTH_SHORT).show();

@@ -1,7 +1,5 @@
 package com.android.mobilemarcom.souvenir;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,26 +12,31 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.android.mobilemarcom.R;
-import com.android.mobilemarcom.adapters.SouvenirListAdapter;
+import com.android.mobilemarcom.adapters.SouvenirAdapter;
+<<<<<<< HEAD:app/src/main/java/com/android/mobilemarcom/souvenir/SouvenirActivity.java
 import com.android.mobilemarcom.model.ModelSouvenir;
+=======
+import com.android.mobilemarcom.model.ModelSouvenir.SouvenirList;
+>>>>>>> 5d4151802a82ed4af11b963c20140995aa0a1a07:app/src/main/java/com/android/mobilemarcom/souvenir/SouvenirFragment.java
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 
-public class SouvenirActivity extends Fragment {
+public class SouvenirFragment extends Fragment {
 
     private RecyclerView recyclerList;
-    private SouvenirListAdapter adapterSouvenir;
+    private SouvenirAdapter adapterSouvenir;
+<<<<<<< HEAD:app/src/main/java/com/android/mobilemarcom/souvenir/SouvenirActivity.java
     private List<ModelSouvenir> listSouvenir = new ArrayList<>();
+=======
+    private List<SouvenirList> listSouvenir = new ArrayList<>();
+>>>>>>> 5d4151802a82ed4af11b963c20140995aa0a1a07:app/src/main/java/com/android/mobilemarcom/souvenir/SouvenirFragment.java
     private Button btn_add_souvenir;
 
     //AutoComplete Search
@@ -89,9 +92,9 @@ public class SouvenirActivity extends Fragment {
     }
 
     private void filter(String text){
-        ArrayList<ModelSouvenir> filteredList = new ArrayList<>();
-        for (ModelSouvenir item : listSouvenir){
-            if (item.getName_souvenir().toLowerCase().contains(text.toLowerCase())) {
+        ArrayList<SouvenirList> filteredList = new ArrayList<>();
+        for (SouvenirList item : listSouvenir){
+            if (item.getName().toLowerCase().contains(text.toLowerCase())) {
                 filteredList.add(item);
             }
         }
@@ -102,19 +105,25 @@ public class SouvenirActivity extends Fragment {
     private void tampilkanListSouvenir(){
         addDummyList();
         if(adapterSouvenir == null){
-            adapterSouvenir = new SouvenirListAdapter(getContext(), listSouvenir);
+            adapterSouvenir = new SouvenirAdapter(getContext(), listSouvenir);
             recyclerList.setAdapter(adapterSouvenir);
         }
     }
 
     private void addDummyList() {
         int index = 1;
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 10; i++) {
+<<<<<<< HEAD:app/src/main/java/com/android/mobilemarcom/souvenir/SouvenirActivity.java
             ModelSouvenir data = new ModelSouvenir();
             data.setCode_souvenir("S000" + index);
             data.setName_souvenir("Dummy Major" + index);
+=======
+            SouvenirList data = new SouvenirList();
+            data.setCode("S000" + index);
+            data.setName("Dummy Major" + index);
+>>>>>>> 5d4151802a82ed4af11b963c20140995aa0a1a07:app/src/main/java/com/android/mobilemarcom/souvenir/SouvenirFragment.java
             data.setQuantity("Dummy Quantity");
-            data.setStatus("Dummy Aktif");
+            data.setDescription("Dummy Aktif");
             listSouvenir.add(data);
             index++;
         }
