@@ -46,7 +46,9 @@ public class UnitAdapter extends RecyclerView.Adapter<ViewHolderUnit> {
         if(unitList != null){
             return unitList.size();
         }
-        return 0;
+        else{
+            return 0;
+        }
     }
 
     public void filterList(List<ModelUnit> filterList){

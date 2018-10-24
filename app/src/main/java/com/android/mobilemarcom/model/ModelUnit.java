@@ -4,9 +4,9 @@ package com.android.mobilemarcom.model;
 public class ModelUnit {
 
     private String unitCode,unitName,untiStatus;
-    private int unitQty;
+    private String unitQty;
 
-    public ModelUnit(String unitCode, String unitName, String untiStatus, int unitQty) {
+    public ModelUnit(String unitCode, String unitName, String untiStatus, String unitQty) {
         this.unitCode = unitCode;
         this.unitName = unitName;
         this.untiStatus = untiStatus;
@@ -37,11 +37,11 @@ public class ModelUnit {
         this.untiStatus = untiStatus;
     }
 
-    public int getUnitQty() {
+    public String getUnitQty() {
         return unitQty;
     }
 
-    public void setUnitQty(int unitQty) {
+    public void setUnitQty(String unitQty) {
         this.unitQty = unitQty;
     }
 }

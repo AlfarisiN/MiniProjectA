@@ -21,22 +21,17 @@
             android:icon="@drawable/icon_add"
             android:title="Souvenir Stok"/>
         <item
-            android:id="@+id/event"
+            android:id="@+id/unit"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:title="Unit" />
+        <item
+            android:id="@+id/events"
+            android:icon="@drawable/ic_menu_share"
+            android:title="Event" />
+        <item
+            android:id="@+id/nav_send"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Send" />
     </group>
-
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
-        </menu>
-    </item>
 
 </menu>

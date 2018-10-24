@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.android.mobilemarcom.employee.EmployeeActivity;
+import com.android.mobilemarcom.event.EventFragment;
 import com.android.mobilemarcom.souvenir.SouvenirFragment;
 import com.android.mobilemarcom.t_souvenir.SouvenirStokFragment;
 import com.android.mobilemarcom.unit.UnitFragment;
@@ -101,13 +102,18 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.replace(R.id.frame_all_menu, souvenirStokFragment,"menu kiri 4");
             fragmentTransaction.commit();
 
-        } else if (id == R.id.event) {
+        } else if (id == R.id.unit) {
             UnitFragment unitFragment = new UnitFragment();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.frame_all_menu, unitFragment,"menu kiri 4");
             fragmentTransaction.commit();
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.events) {
+            EventFragment eventFragment = new EventFragment();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.frame_all_menu, eventFragment,"menu kiri 4");
+            fragmentTransaction.commit();
+
 
         } else if (id == R.id.nav_send) {
 

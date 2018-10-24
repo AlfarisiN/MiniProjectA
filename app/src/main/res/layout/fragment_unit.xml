@@ -50,18 +50,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:text="Quantity"/>
+                android:text="Description"/>
             <TextView
                 android:textSize="16sp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:text="Status"/>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-            </LinearLayout>
+
         </LinearLayout>
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerUnit"
