@@ -26,7 +26,7 @@ import java.util.List;
 
 public class EmployeeActivity extends Fragment {
     private RecyclerView recyclerUser;
-    private UsersAdapter userListAdapter;
+    private EmployeeAdapter userListAdapter;
     private List<String> stringList = new ArrayList<>();
     private DialogAutoComplete dialogChooseCompany;
     private EditText nameSearch;
@@ -96,7 +96,7 @@ public class EmployeeActivity extends Fragment {
 
     private void tampilkanListUser(){
         if(userListAdapter == null){
-            userListAdapter = new UsersAdapter(getContext(),ID,FULLNAME,COMPANY,STATUS);
+            userListAdapter = new EmployeeAdapter(getContext(),ID,FULLNAME,COMPANY,STATUS);
             recyclerUser.setAdapter(userListAdapter);
         }
 

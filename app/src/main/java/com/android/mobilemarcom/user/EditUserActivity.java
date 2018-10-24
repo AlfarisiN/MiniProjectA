@@ -16,6 +16,8 @@ import android.widget.Toast;
 
 import com.android.mobilemarcom.R;
 
+import com.android.mobilemarcom.R;
+
 public class EditUserActivity extends Activity {
     private Context context = this;
     private EditText etUsername,editText4,editText5;
