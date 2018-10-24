@@ -17,11 +17,7 @@ public class SouvenirAdapter extends RecyclerView.Adapter<ViewHolderSouvenir> {
     private Context context;
     private List<SouvenirList> souvenirList;
 
-<<<<<<< HEAD:app/src/main/java/com/android/mobilemarcom/adapters/SouvenirAdapter.java
-    public SouvenirAdapter(Context context, List<ModelSouvenir> souvenirList) {
-=======
     public SouvenirAdapter(Context context, List<SouvenirList> souvenirList) {
->>>>>>> 5d4151802a82ed4af11b963c20140995aa0a1a07:app/src/main/java/com/android/mobilemarcom/adapters/SouvenirAdapter.java
         this.context = context;
         this.souvenirList = souvenirList;
     }
@@ -39,11 +35,7 @@ public class SouvenirAdapter extends RecyclerView.Adapter<ViewHolderSouvenir> {
 
     @Override
     public void onBindViewHolder(final ViewHolderSouvenir holder, final int position) {
-<<<<<<< HEAD:app/src/main/java/com/android/mobilemarcom/adapters/SouvenirAdapter.java
-        final ModelSouvenir souvenir = souvenirList.get(position);
-=======
         final SouvenirList souvenir = souvenirList.get(position);
->>>>>>> 5d4151802a82ed4af11b963c20140995aa0a1a07:app/src/main/java/com/android/mobilemarcom/adapters/SouvenirAdapter.java
         holder.setModelSouvenir(context, souvenir);
 
     }

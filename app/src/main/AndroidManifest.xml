@@ -19,7 +19,7 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name="com.android.mobilemarcom.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".souvenir.SouvenirFragment" />
