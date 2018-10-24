@@ -1,21 +1,31 @@
 package com.android.mobilemarcom.viewholder;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
+<<<<<<< HEAD
+import android.widget.Button;
+import android.widget.ImageView;
+=======
 import android.widget.ImageView;
 import android.widget.PopupMenu;
+>>>>>>> 5d4151802a82ed4af11b963c20140995aa0a1a07
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.mobilemarcom.R;
 <<<<<<< HEAD
 import com.android.mobilemarcom.model.ModelSouvenir;
+<<<<<<< HEAD
+import com.android.mobilemarcom.souvenir.EditSouvenirActivity;
+=======
 =======
 import com.android.mobilemarcom.model.ModelSouvenir.SouvenirList;
 >>>>>>> ff85352f25b5b9d3bb2bb2fd349d3e4d0ec9592d
+>>>>>>> 5d4151802a82ed4af11b963c20140995aa0a1a07
 
 public class ViewHolderSouvenir extends RecyclerView.ViewHolder {
     private TextView souvenir_list_code, souvenir_list_name, souvenir_list_quantity, souvenir_list_status;
@@ -24,7 +34,7 @@ public class ViewHolderSouvenir extends RecyclerView.ViewHolder {
 
     public ViewHolderSouvenir(@NonNull View itemView) {
         super(itemView);
-
+        
         souvenir_list_code = (TextView) itemView.findViewById(R.id.souvenir_list_code);
         souvenir_list_name = (TextView) itemView.findViewById(R.id.souvenir_list_name);
         souvenir_list_quantity = (TextView) itemView.findViewById(R.id.souvenir_list_quantity);
@@ -42,7 +52,12 @@ public class ViewHolderSouvenir extends RecyclerView.ViewHolder {
             souvenir_list_name.setText(name);
 
 <<<<<<< HEAD
+
+    public void setModelSouvenir(Context context, ModelSouvenir souvenir){
+=======
+<<<<<<< HEAD
     public void setModelSouvenir(final Context context, ModelSouvenir souvenir){
+>>>>>>> 5d4151802a82ed4af11b963c20140995aa0a1a07
         //set Code
         String code = souvenir.getCode_souvenir();
         souvenir_list_code.setText(code);
@@ -68,6 +83,11 @@ public class ViewHolderSouvenir extends RecyclerView.ViewHolder {
         image_souvenir_option.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+<<<<<<< HEAD
+
+            }
+        });
+=======
                 PopupMenu popupMenu = new PopupMenu(context, image_souvenir_option);
                 popupMenu.getMenuInflater().inflate(R.menu.popup, popupMenu.getMenu());
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -114,4 +134,5 @@ public class ViewHolderSouvenir extends RecyclerView.ViewHolder {
             });
         }
 >>>>>>> ff85352f25b5b9d3bb2bb2fd349d3e4d0ec9592d
+>>>>>>> 5d4151802a82ed4af11b963c20140995aa0a1a07
     }

@@ -17,7 +17,11 @@ import android.widget.EditText;
 
 import com.android.mobilemarcom.R;
 import com.android.mobilemarcom.adapters.SouvenirAdapter;
+<<<<<<< HEAD:app/src/main/java/com/android/mobilemarcom/souvenir/SouvenirActivity.java
+import com.android.mobilemarcom.model.ModelSouvenir;
+=======
 import com.android.mobilemarcom.model.ModelSouvenir.SouvenirList;
+>>>>>>> 5d4151802a82ed4af11b963c20140995aa0a1a07:app/src/main/java/com/android/mobilemarcom/souvenir/SouvenirFragment.java
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +32,11 @@ public class SouvenirFragment extends Fragment {
 
     private RecyclerView recyclerList;
     private SouvenirAdapter adapterSouvenir;
+<<<<<<< HEAD:app/src/main/java/com/android/mobilemarcom/souvenir/SouvenirActivity.java
+    private List<ModelSouvenir> listSouvenir = new ArrayList<>();
+=======
     private List<SouvenirList> listSouvenir = new ArrayList<>();
+>>>>>>> 5d4151802a82ed4af11b963c20140995aa0a1a07:app/src/main/java/com/android/mobilemarcom/souvenir/SouvenirFragment.java
     private Button btn_add_souvenir;
 
     //AutoComplete Search
@@ -105,9 +113,15 @@ public class SouvenirFragment extends Fragment {
     private void addDummyList() {
         int index = 1;
         for (int i = 0; i < 10; i++) {
+<<<<<<< HEAD:app/src/main/java/com/android/mobilemarcom/souvenir/SouvenirActivity.java
+            ModelSouvenir data = new ModelSouvenir();
+            data.setCode_souvenir("S000" + index);
+            data.setName_souvenir("Dummy Major" + index);
+=======
             SouvenirList data = new SouvenirList();
             data.setCode("S000" + index);
             data.setName("Dummy Major" + index);
+>>>>>>> 5d4151802a82ed4af11b963c20140995aa0a1a07:app/src/main/java/com/android/mobilemarcom/souvenir/SouvenirFragment.java
             data.setQuantity("Dummy Quantity");
             data.setDescription("Dummy Aktif");
             listSouvenir.add(data);
