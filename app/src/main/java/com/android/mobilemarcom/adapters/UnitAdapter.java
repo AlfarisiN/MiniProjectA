@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 
 import com.android.mobilemarcom.R;
 import com.android.mobilemarcom.model.ModelUnit;
+import com.android.mobilemarcom.unit.modelunit.DataList;
 import com.android.mobilemarcom.viewholder.ViewHolderSouvenir;
 import com.android.mobilemarcom.viewholder.ViewHolderUnit;
 
@@ -20,9 +21,9 @@ import java.util.List;
 
 public class UnitAdapter extends RecyclerView.Adapter<ViewHolderUnit> {
     private Context context;
-    private List<ModelUnit> unitList;
+    public static List<DataList> unitList;
 
-    public UnitAdapter(Context context, List<ModelUnit> unitList) {
+    public UnitAdapter(Context context, List<DataList> unitList) {
         this.context = context;
         this.unitList = unitList;
     }
@@ -36,8 +37,9 @@ public class UnitAdapter extends RecyclerView.Adapter<ViewHolderUnit> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderUnit viewHolderUnit, int i) {
-        final ModelUnit unit = unitList.get(i);
+        final DataList unit = unitList.get(i);
         viewHolderUnit.setModelUnit(context, unit);
+        viewHolderUnit.unitDeactiveAndEdit(unit);
     }
 
 
@@ -51,7 +53,7 @@ public class UnitAdapter extends RecyclerView.Adapter<ViewHolderUnit> {
         }
     }
 
-    public void filterList(List<ModelUnit> filterList){
+    public void filterList(List<DataList> filterList){
         unitList = filterList;
         notifyDataSetChanged();
     }

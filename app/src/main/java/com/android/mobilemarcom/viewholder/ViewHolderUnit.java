@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +16,8 @@ import android.widget.Toast;
 
 import com.android.mobilemarcom.R;
 import com.android.mobilemarcom.model.ModelUnit;
+import com.android.mobilemarcom.unit.UnitFragment;
+import com.android.mobilemarcom.unit.modelunit.DataList;
 
 public class ViewHolderUnit extends RecyclerView.ViewHolder {
     private TextView unitListCode, unitListName, unitListQty, unitListStatus;
@@ -31,6 +34,36 @@ public class ViewHolderUnit extends RecyclerView.ViewHolder {
         unitListQty = (TextView) itemView.findViewById(R.id.unitQuantity);
         unitListStatus = (TextView) itemView.findViewById(R.id.unitStatus);
         unitBurgerOption = (ImageView) itemView.findViewById(R.id.unitBurger);
+
+    }
+
+    public void setModelUnit(Context context, DataList unit){
+        //set Code
+        String code = unit.getCode();
+        unitListCode.setText(code);
+
+        //set Name
+        Object name = unit.getName();
+        unitListName.setText("Null :(");
+
+        //set quantity
+        String quantity = unit.getDescription();
+        unitListQty.setText(quantity);
+
+        //set Status
+        boolean status = unit.getIsDelete();
+        if(!status){
+            unitListStatus.setText("Aktif");
+        }
+        else{
+            unitListStatus.setText("Deactive");
+        }
+
+    }
+
+    public void unitDeactiveAndEdit(DataList unit){
+        final DataList tempDataHolder = unit;
+
         unitBurgerOption.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,26 +75,12 @@ public class ViewHolderUnit extends RecyclerView.ViewHolder {
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem menuItem) {
-                        if(menuItem.getTitle() == "Edit"){
-                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-
-                            builder.setCancelable(false);
-                            builder.setTitle("Ubah Data Unit")
-                                    .setView(R.layout.dialog_add_unit)
-                                    .setPositiveButton("Save", new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialogInterface, int i) {
-                                            Toast.makeText(context,"Add",Toast.LENGTH_SHORT).show();
-                                        }
-                                    })
-                                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialogInterface, int i) {
-                                            Toast.makeText(context,"Cancel",Toast.LENGTH_SHORT).show();
-                                        }
-                                    }).show();
-                        }else{
-                            Toast.makeText(itemView.getContext(),"kepo",Toast.LENGTH_LONG).show();
+                        Log.e("dem",menuItem.getTitle()+"");
+                        if(menuItem.getTitle().toString().equals("Edit")){
+                            UnitFragment.editUnit(tempDataHolder);
+                        }
+                        else{
+                            UnitFragment.deactiveUnit(tempDataHolder);
                         }
 
                         return true;
@@ -70,24 +89,6 @@ public class ViewHolderUnit extends RecyclerView.ViewHolder {
                 popupMenu.show();
             }
         });
-    }
-
-    public void setModelUnit(Context context, ModelUnit unit){
-        //set Code
-        String code = unit.getUnitCode();
-        unitListCode.setText(code);
-
-        //set Name
-        String name = unit.getUnitName();
-        unitListName.setText(name);
-
-        //set quantity
-        String quantity = unit.getUnitQty();
-        unitListQty.setText(quantity);
-
-        //set Status
-        String status = unit.getUntiStatus();
-        unitListStatus.setText(status);
     }
 }
 

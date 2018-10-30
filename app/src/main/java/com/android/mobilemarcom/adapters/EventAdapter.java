@@ -8,8 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.android.mobilemarcom.R;
+import com.android.mobilemarcom.event.modelevent.EventModul;
 import com.android.mobilemarcom.model.ModelEvent;
 import com.android.mobilemarcom.model.ModelUnit;
+import com.android.mobilemarcom.model.modelevent.DataList;
 import com.android.mobilemarcom.viewholder.ViewHolderEvent;
 import com.android.mobilemarcom.viewholder.ViewHolderUnit;
 
@@ -22,9 +24,9 @@ import java.util.List;
 public class EventAdapter extends RecyclerView.Adapter<ViewHolderEvent> {
 
     private Context context;
-    private List<ModelEvent> eventList;
+    private List<DataList> eventList;
 
-    public EventAdapter(Context context, List<ModelEvent> eventList) {
+    public EventAdapter(Context context, List<DataList> eventList) {
         this.context = context;
         this.eventList = eventList;
     }
@@ -38,8 +40,9 @@ public class EventAdapter extends RecyclerView.Adapter<ViewHolderEvent> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderEvent holder, int position) {
-        final ModelEvent events = eventList.get(position);
+        final DataList events = eventList.get(position);
         holder.setModelEvent(context, events);
+        holder.eventListEdit(events);
     }
 
     @Override
@@ -52,7 +55,7 @@ public class EventAdapter extends RecyclerView.Adapter<ViewHolderEvent> {
         }
     }
 
-    public void filterList(List<ModelEvent> filterList){
+    public void filterList(List<DataList> filterList){
         eventList = filterList;
         notifyDataSetChanged();
     }

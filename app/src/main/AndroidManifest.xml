@@ -30,7 +30,9 @@
         <activity android:name=".t_souvenir.TransaksiSouvenirDaftarActivity" />
         <activity android:name=".souvenir.EditSouvenirActivity" />
         <activity android:name=".t_souvenir.SouvenirStokAddItemActivity" />
-        <activity android:name=".event.EventRequestActivity"></activity>
+        <activity android:name=".event.EventRequestActivity" />
+        <activity android:name=".event.EventApprovalActivity" />
+        <activity android:name=".event.CloseEventActivity"></activity>
     </application>
 
 </manifest>
