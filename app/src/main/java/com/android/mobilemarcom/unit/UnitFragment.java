@@ -18,6 +18,7 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -81,9 +82,6 @@ public class UnitFragment extends Fragment {
 
         recyclerList.setVisibility(View.INVISIBLE);
 
-        adapterUnit = new UnitAdapter(context,listUnit);
-        recyclerList.setAdapter(adapterUnit);
-
         searchUnit.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -100,15 +98,52 @@ public class UnitFragment extends Fragment {
                 if(searchUnit.getText().toString().isEmpty()){
                     recyclerList.setVisibility(View.INVISIBLE);
                 }
-                else{
-                    recyclerList.setVisibility(View.VISIBLE);
-                    filterUnit(s.toString());
-                }
+            }
+        });
 
+        searchUnit.setOnTouchListener(new View.OnTouchListener() {
+            private float touchX = 0;
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                int drawableLeft = searchUnit.getRight() - searchUnit
+                        .getCompoundDrawables()[2].getBounds().width();
+                if(event.getAction() == MotionEvent.ACTION_DOWN && event.getRawX() >= drawableLeft){
+                    touchX = event.getRawX();
+                    return true;
+                }
+                else if(event.getAction() == MotionEvent.ACTION_UP && touchX >= drawableLeft){
+
+                    if(searchUnit.getText().toString().trim().isEmpty()){
+                        Toast.makeText(context,"Isikan Form isian terlebih dahulu",Toast.LENGTH_LONG).show();
+                    }
+                    else{
+                        if(listUnit.size()==0){
+                            searcUnit();
+                        }
+                        else {
+                            filterUnit(searchUnit.getText().toString());
+                        }
+                        recyclerList.setVisibility(View.VISIBLE);
+                    }
+
+                    touchX = 0;
+                    return true;
+                }
+                else {
+                    return searchUnit.onTouchEvent(event);
+                }
             }
         });
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        recyclerList.setVisibility(View.INVISIBLE);
+        super.onResume();
     }
 
     public void filterUnit(String text){
@@ -120,7 +155,6 @@ public class UnitFragment extends Fragment {
             }
         }
 
-        searcUnit();
         adapterUnit.filterList(filterList);
     }
 
@@ -138,8 +172,8 @@ public class UnitFragment extends Fragment {
         String tempStat = unitNotes.getText().toString();
 
         Random random = new Random();
-        int tempRandomCode = random.nextInt(999)+1;
-        int tempRandomID = random.nextInt(20)+1;
+        int tempRandomCode = random.nextInt(999)+6;
+        int tempRandomID = random.nextInt(30)+6;
 
         tempData.setId(tempRandomID);
         tempData.setCode("UN"+tempRandomCode);
@@ -294,6 +328,9 @@ public class UnitFragment extends Fragment {
 
                         if(response.code()==200){
                             listUnit = response.body().getDataList();
+                            adapterUnit = new UnitAdapter(context,listUnit);
+                            filterUnit(searchUnit.getText().toString());
+                            recyclerList.setAdapter(adapterUnit);
                         }
                         else{
                             Toast.makeText(context,"Something Went Wrong",Toast.LENGTH_LONG).show();

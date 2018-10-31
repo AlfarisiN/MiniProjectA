@@ -29,6 +29,7 @@ import com.android.mobilemarcom.unit.modelunit.ModelUnitRetrofit;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Random;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -196,6 +197,12 @@ public class EventRequestActivity extends AppCompatActivity{
         apiServices= APIUtilities.getApiServeices();
 
         final DataList tempData = new DataList();
+        Random random = new Random();
+        int tempRandomCode = random.nextInt(999)+6;
+        int tempRandomID = random.nextInt(20)+6;
+
+        tempData.setCode("EV"+tempRandomCode);
+        tempData.setId(tempRandomID);
         tempData.setEventName(eventInputName.getText().toString());
         tempData.setPlace(eventInputPlace.getText().toString());
         tempData.setStartDate(eventInputStartDate.getText().toString());
@@ -209,7 +216,7 @@ public class EventRequestActivity extends AppCompatActivity{
                     public void onResponse(Call<ModelEventRetrofit> call, Response<ModelEventRetrofit> response) {
                         if(response.code()==201){
                             Toast.makeText(context,response.body().getMessage(),Toast.LENGTH_LONG).show();
-                            EventFragment.listEvent.add(tempData);
+//                            EventFragment.listEvent.add(tempData);
                         }
                         else{
                             Toast.makeText(context,"Something went wrong",Toast.LENGTH_LONG).show();

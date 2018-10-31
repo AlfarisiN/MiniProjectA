@@ -63,7 +63,7 @@ public class ViewHolderEvent extends RecyclerView.ViewHolder {
 
         //set Status
 //        String status = event.getStatus().toString();
-        eventListStatus.setText("Masih Null");
+        eventListStatus.setText("Submited");
     }
 
     public void eventListEdit(DataList event){
@@ -79,7 +79,7 @@ public class ViewHolderEvent extends RecyclerView.ViewHolder {
         final String tempNotes = "10000";
         final String tempAssignTo = "Regis";
         final String tempRequestedBy = "Seira";
-        final String tempStatus = "Submites";
+        final String tempStatus = "Submited";
         final String tempRequestDate= "29-02-2018";
 
         eventBurgerOption.setOnClickListener(new View.OnClickListener() {

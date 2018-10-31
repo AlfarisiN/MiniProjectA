@@ -37,6 +37,8 @@ import com.android.mobilemarcom.unit.modelunit.ModelUnitRetrofit;
 import com.android.mobilemarcom.utility.LoadingClass;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 
 import retrofit2.Call;
@@ -82,31 +84,25 @@ public class EventFragment extends Fragment {
 
 //        recyclerListEvent.setVisibility(View.INVISIBLE);
 
-        adapterEvent = new EventAdapter(context,listEvent);
-        recyclerListEvent.setAdapter(adapterEvent);
 
-//        searchEvent.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-//
-//            }
-//
-//            @Override
-//            public void onTextChanged(CharSequence s, int start, int before, int count) {
-//
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable s) {
-//                if(searchEvent.getText().toString().isEmpty()){
-//                    recyclerListEvent.setVisibility(View.INVISIBLE);
-//                }
-//                else{
-//                    recyclerListEvent.setVisibility(View.VISIBLE);
-//                    filterEvent(s.toString());
-//                }
-//            }
-//        });
+        searchEvent.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(searchEvent.getText().toString().isEmpty()){
+                    recyclerListEvent.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
 
         //untuk ngeklik drawable right nya
         searchEvent.setOnTouchListener(new View.OnTouchListener() {
@@ -122,8 +118,18 @@ public class EventFragment extends Fragment {
                 }
                 else if(event.getAction() == MotionEvent.ACTION_UP && touchX >= drawableLeft){
 
-                    filterEvent(searchEvent.getText().toString());
-//                    recyclerListEvent.setVisibility(View.VISIBLE);
+                    if(searchEvent.getText().toString().trim().isEmpty()){
+                        Toast.makeText(context,"Isikan Form isian terlebih dahulu",Toast.LENGTH_LONG).show();
+                    }
+                    else{
+                        recyclerListEvent.setVisibility(View.VISIBLE);
+                        if(listEvent.size()==0){
+                            searchForEvent();
+                        }
+                        else{
+                            filterEvent(searchEvent.getText().toString());
+                        }
+                    }
 
                     touchX = 0;
                     return true;
@@ -137,6 +143,13 @@ public class EventFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onResume() {
+        recyclerListEvent.setVisibility(View.INVISIBLE);
+        searchEvent.setText("");
+        super.onResume();
+    }
+
     public void filterEvent(String text){
         ArrayList<DataList> filterList = new ArrayList<>();
 
@@ -146,8 +159,8 @@ public class EventFragment extends Fragment {
             }
         }
 
-        searchForEvent();
         adapterEvent.filterList(filterList);
+
     }
 
     private void searchForEvent(){
@@ -165,12 +178,14 @@ public class EventFragment extends Fragment {
 
                         if(response.code()==200){
                             listEvent = response.body().getDataList();
-                            recyclerListEvent.setVisibility(View.VISIBLE);
+                            adapterEvent = new EventAdapter(context,listEvent);
+                            filterEvent(searchEvent.getText().toString());
+                            recyclerListEvent.setAdapter(adapterEvent);
                         }
                         else {
                             Toast.makeText(context,"Something Went Wrong",Toast.LENGTH_SHORT).show();
                         }
-
+                        adapterEvent.notifyDataSetChanged();
                     }
 
                     @Override

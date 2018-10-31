@@ -2,8 +2,10 @@ package com.android.mobilemarcom.event;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -24,6 +26,7 @@ import com.android.mobilemarcom.model.modelevent.DataList;
 import com.android.mobilemarcom.model.modelevent.ModelEventRetrofit;
 import com.android.mobilemarcom.retrofit.APIUtilities;
 import com.android.mobilemarcom.retrofit.RequestAPIServices;
+import com.android.mobilemarcom.utility.LoadingClass;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +47,7 @@ public class EventApprovalActivity extends AppCompatActivity {
     List<DataList> listAssign = new ArrayList<>();
     ArrayAdapter<String> arrayAdapter;
 
+    DataList eventImported = new DataList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +70,8 @@ public class EventApprovalActivity extends AppCompatActivity {
         buttonCancel = (Button)findViewById(R.id.eventApprovalButtonCancel);
         toolbar = (Toolbar)findViewById(R.id.eventApprovalToolBar);
 
+        setDisplayApproval();
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Event Approval");
 
@@ -85,7 +91,7 @@ public class EventApprovalActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                arrayAdapter = getEmailAddressAdapter(context,s.toString());
+                arrayAdapter = getAutofillAdapter(context,s.toString());
 
                 inputAssignTo.setAdapter(arrayAdapter);
                 arrayAdapter.notifyDataSetChanged();
@@ -101,13 +107,41 @@ public class EventApprovalActivity extends AppCompatActivity {
         return true;
     }
 
-    private ArrayAdapter<String> getEmailAddressAdapter(Context context,String path) {
+    private void setDisplayApproval(){
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+
+        eventImported.setId(Integer.parseInt(bundle.get("dataID").toString()));
+        eventImported.setCode(bundle.get("dataCode").toString());
+        eventImported.setEventName(bundle.get("dataName").toString());
+        eventImported.setPlace(bundle.get("dataPlace").toString());
+        eventImported.setStartDate(bundle.get("dataStartDate").toString());
+        eventImported.setEndDate(bundle.get("dataEndDate").toString());
+        eventImported.setBudget(bundle.get("dataBudget").toString());
+        eventImported.setNotes(bundle.get("dataNotes").toString());
+        eventImported.setRequestedBy(bundle.get("dataRequestedBy").toString());
+        eventImported.setRequestedDate(bundle.get("dataRequestDate").toString());
+        eventImported.setStatus(bundle.get("dataStatus").toString());
+
+        textCode.setText(": "+bundle.get("dataCode"));
+        textName.setText(": "+bundle.get("dataName"));
+        textPlace.setText(": "+bundle.get("dataPlace"));
+        textStartDate.setText(": "+bundle.get("dataStartDate"));
+        textEndDate.setText(": "+bundle.get("dataEndDate"));
+        textBudget.setText(": "+bundle.get("dataBudget"));
+        textNotes.setText(": "+bundle.get("dataNotes"));
+        textRequestedBy.setText(": "+bundle.get("dataRequestedBy"));
+        textRequestDate.setText(": "+bundle.get("dataRequestDate"));
+        textStatus.setText(": "+bundle.get("dataStatus"));
+    }
+
+    private ArrayAdapter<String> getAutofillAdapter(Context context,String path) {
 
         eventAutoComplete(path);
 
         String[] addresses = new String[listAssign.size()];
         for (int i = 0; i < addresses.length; i++) {
-            addresses[i] = listAssign.get(i).getId().toString();
+            addresses[i] = listAssign.get(i).getCode();
         }
 
         return new ArrayAdapter<String>(context, android.R.layout.simple_dropdown_item_1line, addresses);
@@ -128,12 +162,6 @@ public class EventApprovalActivity extends AppCompatActivity {
                                     listAssign = response.body().getDataList();
                                 }
                             }
-//                            else{
-//                                tempUnitList = response.body().getDataList();
-//                                for (int i = 0;i<response.body().getDataList().size();i++){
-//                                    listAssign.add(tempUnitList.get(i));
-//                                }
-//                            }
                         }
 
                         @Override
@@ -146,7 +174,7 @@ public class EventApprovalActivity extends AppCompatActivity {
 
     public void eventRejection(){
         LinearLayout linearLayout = new LinearLayout(context);
-        EditText rejectReason = new EditText(context);
+        final EditText rejectReason = new EditText(context);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
         params.setMargins(10,10,10,10);
@@ -164,7 +192,7 @@ public class EventApprovalActivity extends AppCompatActivity {
                 .setPositiveButton("Reject", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        rejectMethod();
+                        rejectMethod(eventImported.getId().toString(),rejectReason.getText().toString());
                     }
                 })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -176,15 +204,19 @@ public class EventApprovalActivity extends AppCompatActivity {
 
     }
 
-    public void rejectMethod(){
+    public void rejectMethod(String id,String reason){
+        final ProgressDialog loading = LoadingClass.loadingAnimationAndText(context,"");
+        loading.show();
         apiServices = APIUtilities.getApiServeices();
 
-        apiServices.rejectEvent(APIUtilities.CONTENT_HEADER,APIUtilities.AUTHORIZATION_UNIT_SEARCH,inputAssignTo.getText().toString())
+        apiServices.rejectEvent(APIUtilities.CONTENT_HEADER,APIUtilities.AUTHORIZATION_UNIT_SEARCH,id,reason)
                 .enqueue(new Callback<ModelEventRetrofit>() {
                     @Override
                     public void onResponse(Call<ModelEventRetrofit> call, Response<ModelEventRetrofit> response) {
+                        loading.dismiss();
                         if(response.code() == 200){
                             Toast.makeText(context,response.body().getMessage(),Toast.LENGTH_LONG).show();
+                            finish();
                         }
                         else{
                             Toast.makeText(context,response.body().getMessage(),Toast.LENGTH_LONG).show();
@@ -193,32 +225,87 @@ public class EventApprovalActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<ModelEventRetrofit> call, Throwable t) {
+                        loading.dismiss();
                         Toast.makeText(context,"Reject Event Failed",Toast.LENGTH_LONG).show();
                     }
                 });
     }
 
+    private void approveMethod(){
+        final ProgressDialog loading = LoadingClass.loadingAnimationAndText(context,"");
+        loading.show();
+
+        String selectedIDAssign = eventAssignIDCheck(inputAssignTo.getText().toString());
+        String idEventApproval = eventImported.getId().toString();
+        apiServices = APIUtilities.getApiServeices();
+
+        apiServices.approvalEvent(APIUtilities.CONTENT_HEADER,APIUtilities.AUTHORIZATION_UNIT_SEARCH,idEventApproval,selectedIDAssign)
+                .enqueue(new Callback<ModelEventRetrofit>() {
+                    @Override
+                    public void onResponse(Call<ModelEventRetrofit> call, Response<ModelEventRetrofit> response) {
+                        loading.dismiss();
+                        if(response.code() == 200){
+                            Toast.makeText(context,response.body().getMessage(),Toast.LENGTH_LONG).show();
+                            finish();
+                        }
+                        else{
+                            Toast.makeText(context,"Something Went Wrong",Toast.LENGTH_LONG).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ModelEventRetrofit> call, Throwable t) {
+                        loading.dismiss();
+                        Toast.makeText(context,"Approval Failed",Toast.LENGTH_LONG).show();
+                    }
+                });
+
+    }
+
+    private String eventAssignIDCheck(String text){
+        String temp="";
+
+        for (int i = 0; i<listAssign.size();i++){
+            if(listAssign.get(i).getCode().equals(text)){
+                temp=listAssign.get(i).getId().toString();
+            }
+        }
+
+        return temp;
+    }
+
     private void pushedButton(){
 
-        buttonCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+            buttonCancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                }
+            });
 
-        buttonApprove.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            buttonApprove.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(inputAssignTo.getText().toString().trim().isEmpty()){
+                        Toast.makeText(context,"Isikan Form isian terlebih dahulu",Toast.LENGTH_LONG).show();
+                    }
+                    else{
+                        approveMethod();
+                    }
+                }
+            });
 
-            }
-        });
+            buttonReject.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(inputAssignTo.getText().toString().trim().isEmpty()){
+                        Toast.makeText(context,"Isikan Form isian terlebih dahulu",Toast.LENGTH_LONG).show();
+                    }
+                    else{
+                        eventRejection();
+                    }
+                }
+            });
 
-        buttonReject.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                eventRejection();
-            }
-        });
     }
 }

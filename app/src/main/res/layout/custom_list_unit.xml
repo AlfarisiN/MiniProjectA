@@ -4,7 +4,6 @@
     android:layout_height="wrap_content">
     <LinearLayout
         android:background="@drawable/border_layouts"
-        android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -13,12 +12,14 @@
             android:layout_marginLeft="5dp"
             android:id="@+id/unitCodeName"
             android:layout_width="0dp"
+            android:textSize="12sp"
             android:layout_weight="2"
             android:layout_height="wrap_content"
             android:text="CodeNumber"
             android:layout_gravity="center"/>
         <TextView
             android:id="@+id/unitName"
+            android:textSize="12sp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
@@ -28,6 +29,7 @@
         <TextView
             android:id="@+id/unitQuantity"
             android:layout_width="0dp"
+            android:textSize="12sp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:text="Quantityy"
@@ -39,6 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Status"
+            android:textSize="12sp"
             android:layout_gravity="center"/>
 
         <LinearLayout

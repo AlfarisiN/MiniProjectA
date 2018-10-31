@@ -64,13 +64,20 @@ public interface RequestAPIServices {
     Call<ModelEventRetrofit> autoCompleteEvent(@Header("Authorization")String auth,
                                          @Path("pathID") String id);
 
-    @PUT("marcomm-ws/api/event/reject/{pathID}/test")
+    @PUT("marcomm-ws/api/event/reject/{pathID}/{reason}")
     Call<ModelEventRetrofit> rejectEvent(@Header("Content-Type")String head,
                                        @Header("Authorization")String auth,
-                                       @Path("pathID") String pathID);
+                                       @Path("pathID") String pathID,
+                                       @Path("reason") String reason);
 
     @PUT("marcomm-ws/api/event/close/{pathID}")
     Call<ModelEventRetrofit> closeEvent(@Header("Content-Type")String head,
                                          @Header("Authorization")String auth,
                                          @Path("pathID") String pathID);
+
+    @PUT("marcomm-ws/api/event/approve/{pathID1}/{pathID2}")
+    Call<ModelEventRetrofit> approvalEvent(@Header("Content-Type")String head,
+                                           @Header("Authorization")String auth,
+                                           @Path("pathID1") String path1,
+                                           @Path("pathID2") String path2);
 }

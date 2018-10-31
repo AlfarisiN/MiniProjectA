@@ -19,7 +19,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
                 android:layout_marginEnd="20dp"
-                android:drawableEnd="@mipmap/icon_time"/>
+                android:drawableEnd="@drawable/ic_search"/>
             <Button
                 android:id="@+id/buttonAddUnit"
                 android:layout_width="0dp"
